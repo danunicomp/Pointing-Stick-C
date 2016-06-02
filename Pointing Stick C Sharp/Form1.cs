@@ -10,49 +10,20 @@ using System.Windows.Forms;
 
 namespace Pointing_Stick_C_Sharp
 {
-
-   
-
     public partial class frmPSTest : Form
     {
         Point lastPoint = Point.Empty;//Point.Empty represents null for a Point object
-        private Graphics paper;
-        private Pen pen;
-    
 
         public frmPSTest()
         {
             InitializeComponent();
-            paper = this.CreateGraphics();
-            pen = new Pen(Color.Black);
-            pen.Width = 1;
 
             pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(pictureBox1_MouseMove);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(panel2_MouseMove);
         }
 
         private void frmPSTest_Load(object sender, EventArgs e)
         {
 
-        }
-
-        private void panel2_MouseMove(object sender, MouseEventArgs e)
-        {
-            //  Console.WriteLine("Move:");
-
-
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-            
-        }
-
-        private void panel2_MouseEnter(object sender, System.EventArgs e)
-        {
-            // Update the mouse event label to indicate the MouseEnter event occurred.
-            Console.WriteLine("Mouse Enter");
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
