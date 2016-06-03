@@ -40,9 +40,9 @@
             this.Label1 = new System.Windows.Forms.Label();
             this.txtXpos = new System.Windows.Forms.TextBox();
             this.txtYpos = new System.Windows.Forms.TextBox();
-            this.picTestArea = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picTestArea)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnDriftResult
@@ -76,7 +76,6 @@
             this.btnRememberPos.Size = new System.Drawing.Size(75, 23);
             this.btnRememberPos.TabIndex = 21;
             this.btnRememberPos.Text = "F4 - Lock";
-            this.btnRememberPos.Click += new System.EventHandler(this.btnRememberPos_Click);
             // 
             // btnExit
             // 
@@ -85,7 +84,6 @@
             this.btnExit.Size = new System.Drawing.Size(75, 23);
             this.btnExit.TabIndex = 20;
             this.btnExit.Text = "F10 - Exit";
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnRestart
             // 
@@ -94,7 +92,6 @@
             this.btnRestart.Size = new System.Drawing.Size(75, 23);
             this.btnRestart.TabIndex = 19;
             this.btnRestart.Text = "F1 - Restart";
-            this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click);
             // 
             // Panel1
             // 
@@ -104,7 +101,7 @@
             this.Panel1.Controls.Add(this.Label1);
             this.Panel1.Controls.Add(this.txtXpos);
             this.Panel1.Controls.Add(this.txtYpos);
-            this.Panel1.Location = new System.Drawing.Point(211, 309);
+            this.Panel1.Location = new System.Drawing.Point(217, 309);
             this.Panel1.Name = "Panel1";
             this.Panel1.Size = new System.Drawing.Size(144, 64);
             this.Panel1.TabIndex = 22;
@@ -159,23 +156,22 @@
             this.txtYpos.TabIndex = 9;
             this.txtYpos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // picTestArea
+            // pictureBox1
             // 
-            this.picTestArea.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picTestArea.Location = new System.Drawing.Point(12, 12);
-            this.picTestArea.Name = "picTestArea";
-            this.picTestArea.Size = new System.Drawing.Size(488, 280);
-            this.picTestArea.TabIndex = 24;
-            this.picTestArea.TabStop = false;
-            this.picTestArea.Click += new System.EventHandler(this.picTestArea_Click);
-            this.picTestArea.MouseDown += new System.Windows.Forms.MouseEventHandler(this.picTestArea_MouseClick);
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(488, 280);
+            this.pictureBox1.TabIndex = 24;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // frmPSTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(512, 416);
-            this.Controls.Add(this.picTestArea);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.Panel1);
             this.Controls.Add(this.btnRememberPos);
             this.Controls.Add(this.btnExit);
@@ -189,7 +185,7 @@
             this.Load += new System.EventHandler(this.frmPSTest_Load);
             this.Panel1.ResumeLayout(false);
             this.Panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picTestArea)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -207,7 +203,7 @@
         internal System.Windows.Forms.Label Label1;
         internal System.Windows.Forms.TextBox txtXpos;
         internal System.Windows.Forms.TextBox txtYpos;
-        private System.Windows.Forms.PictureBox picTestArea;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
