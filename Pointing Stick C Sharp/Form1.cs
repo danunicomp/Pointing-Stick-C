@@ -18,7 +18,7 @@ namespace Pointing_Stick_C_Sharp
         {
             InitializeComponent();
 
-            pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(pictureBox1_MouseMove);
+            picTestArea.MouseMove += new System.Windows.Forms.MouseEventHandler(picTestArea_MouseMove);
         }
 
         private void frmPSTest_Load(object sender, EventArgs e)
@@ -26,19 +26,33 @@ namespace Pointing_Stick_C_Sharp
 
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-
-        }
-        private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (pictureBox1.Image == null)
+            switch (keyData)
             {
-                Bitmap bmp = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-                pictureBox1.Image = bmp;
+
+            case Keys.F1:
+                this.RestartTest();
+                break;
+            case Keys.F4:
+                this.RememeberPosition();
+                break;
+            case Keys.F10:
+                this.ExitTest();
+                break;
+            }
+            return true;
+        }
+
+        private void picTestArea_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (picTestArea.Image == null)
+            {
+                Bitmap bmp = new Bitmap(picTestArea.Width, picTestArea.Height);
+                picTestArea.Image = bmp;
             }
 
-            using (Graphics g = Graphics.FromImage(pictureBox1.Image))
+            using (Graphics g = Graphics.FromImage(picTestArea.Image))
             {
                 //we need to create a Graphics object to draw on the picture box, its our main tool
                 //when making a Pen object, you can just give it color only or give it color and pen size
@@ -49,8 +63,27 @@ namespace Pointing_Stick_C_Sharp
                 //this is to give the drawing a more smoother, less sharper look
             }
 
-            pictureBox1.Invalidate();       //refreshes the picturebox
+            picTestArea.Invalidate();       //refreshes the picturebox
             lastPoint = e.Location;         //keep assigning the lastPoint to the current mouse position
+            txtXpos.Text = e.Location.X.ToString();
+            txtYpos.Text = e.Location.Y.ToString();
         }
+
+        private void ExitTest()
+        {
+            this.Close();
+        }
+
+        private void RememeberPosition()
+        {
+        }
+
+        private void RestartTest()
+        {
+            picTestArea.Image = null;
+        }
+
     }
+
+
 }

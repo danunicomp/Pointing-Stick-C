@@ -40,9 +40,9 @@
             this.Label1 = new System.Windows.Forms.Label();
             this.txtXpos = new System.Windows.Forms.TextBox();
             this.txtYpos = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picTestArea = new System.Windows.Forms.PictureBox();
             this.Panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picTestArea)).BeginInit();
             this.SuspendLayout();
             // 
             // btnDriftResult
@@ -156,22 +156,21 @@
             this.txtYpos.TabIndex = 9;
             this.txtYpos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // pictureBox1
+            // picTestArea
             // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(488, 280);
-            this.pictureBox1.TabIndex = 24;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.picTestArea.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picTestArea.Location = new System.Drawing.Point(12, 12);
+            this.picTestArea.Name = "picTestArea";
+            this.picTestArea.Size = new System.Drawing.Size(488, 280);
+            this.picTestArea.TabIndex = 24;
+            this.picTestArea.TabStop = false;
             // 
             // frmPSTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(512, 416);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.picTestArea);
             this.Controls.Add(this.Panel1);
             this.Controls.Add(this.btnRememberPos);
             this.Controls.Add(this.btnExit);
@@ -181,11 +180,11 @@
             this.Controls.Add(this.btnLeftClick);
             this.Name = "frmPSTest";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "C Sharp";
+            this.Text = "Unicomp Pointing Stick Test. C#";
             this.Load += new System.EventHandler(this.frmPSTest_Load);
             this.Panel1.ResumeLayout(false);
             this.Panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picTestArea)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -203,7 +202,7 @@
         internal System.Windows.Forms.Label Label1;
         internal System.Windows.Forms.TextBox txtXpos;
         internal System.Windows.Forms.TextBox txtYpos;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox picTestArea;
     }
 }
 
