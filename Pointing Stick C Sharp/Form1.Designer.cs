@@ -68,6 +68,7 @@
             this.btnLeftClick.Size = new System.Drawing.Size(75, 40);
             this.btnLeftClick.TabIndex = 16;
             this.btnLeftClick.Text = "LEFT CLICK";
+            this.btnLeftClick.Click += new System.EventHandler(this.btnLeftClick_Click);
             // 
             // btnRememberPos
             // 
@@ -92,6 +93,7 @@
             this.btnRestart.Size = new System.Drawing.Size(75, 23);
             this.btnRestart.TabIndex = 19;
             this.btnRestart.Text = "F1 - Restart";
+            this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click);
             // 
             // Panel1
             // 

@@ -13,12 +13,15 @@ namespace Pointing_Stick_C_Sharp
     public partial class frmPSTest : Form
     {
         Point lastPoint = Point.Empty;//Point.Empty represents null for a Point object
+        int StatusLeft=0, StatusRight=0;
 
         public frmPSTest()
         {
             InitializeComponent();
 
             picTestArea.MouseMove += new System.Windows.Forms.MouseEventHandler(picTestArea_MouseMove);
+            picTestArea.MouseDown += new System.Windows.Forms.MouseEventHandler(MouseDown);
+            picTestArea.MouseUp += new System.Windows.Forms.MouseEventHandler(MouseUp);
         }
 
         private void frmPSTest_Load(object sender, EventArgs e)
@@ -42,6 +45,61 @@ namespace Pointing_Stick_C_Sharp
                 break;
             }
             return true;
+        }
+
+        private new void MouseDown(object sender, MouseEventArgs e)
+        {
+            switch (e.Button)
+            {
+                case MouseButtons.Left:
+                    Console.WriteLine("Down Left");
+                    btnLeftClick.BackColor = Color.LightBlue;
+                    StatusLeft = 1;  // Set Status as being down
+                    break;
+                case MouseButtons.Right:
+                    Console.WriteLine("Down Right");
+                    btnRightClick.BackColor = Color.LightBlue;
+                    StatusRight = 1;  // Set Status as being down
+                    break;
+                default:
+                    break;
+
+            }
+        }
+        private new void MouseUp(object sender, MouseEventArgs e)
+        {
+            switch (e.Button)
+            {
+                case MouseButtons.Left:
+                    Console.WriteLine("Up Left");
+                    if (StatusLeft == 1)
+                    {
+                        btnLeftClick.BackColor = Color.LightGreen; ;
+                        StatusLeft = 0;
+                    }
+                    else
+                    {
+                        btnRightClick.BackColor = Color.Red;
+                        StatusLeft = 0;
+                    }
+                    break;
+                case MouseButtons.Right:
+                    Console.WriteLine("Up Right");
+                    if (StatusRight == 1)
+                    {
+                        btnRightClick.BackColor = Color.LightGreen;
+                        StatusRight = 0;
+                    }
+                    else
+                    {
+                        btnRightClick.BackColor = Color.Red;
+                        StatusRight = 0;
+                    }
+                    break;
+                default:
+                    break;
+
+            }
         }
 
         private void picTestArea_MouseMove(object sender, MouseEventArgs e)
@@ -71,7 +129,7 @@ namespace Pointing_Stick_C_Sharp
 
         private void ExitTest()
         {
-            this.Close();
+            this.Close(); 
         }
 
         private void RememeberPosition()
@@ -81,8 +139,21 @@ namespace Pointing_Stick_C_Sharp
         private void RestartTest()
         {
             picTestArea.Image = null;
+            btnLeftClick.BackColor = Color.LightGray;
+            btnRightClick.BackColor = Color.LightGray;
+            StatusLeft = 0;
+            StatusRight = 0;
         }
 
+        private void btnRestart_Click(object sender, EventArgs e)
+        {
+            this.RestartTest();
+        }
+
+        private void btnLeftClick_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 
