@@ -41,6 +41,7 @@
             this.txtXpos = new System.Windows.Forms.TextBox();
             this.txtYpos = new System.Windows.Forms.TextBox();
             this.picTestArea = new System.Windows.Forms.PictureBox();
+            this.lblInfo = new System.Windows.Forms.Label();
             this.Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picTestArea)).BeginInit();
             this.SuspendLayout();
@@ -167,13 +168,21 @@
             this.picTestArea.TabIndex = 24;
             this.picTestArea.TabStop = false;
             // 
+            // lblInfo
             // 
+            this.lblInfo.AutoSize = true;
+            this.lblInfo.Location = new System.Drawing.Point(13, 408);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(35, 13);
+            this.lblInfo.TabIndex = 25;
+            this.lblInfo.Text = "label3";
             // 
             // frmPSTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(512, 423);
+            this.Controls.Add(this.lblInfo);
             this.Controls.Add(this.picTestArea);
             this.Controls.Add(this.Panel1);
             this.Controls.Add(this.btnRememberPos);
@@ -208,6 +217,7 @@
         internal System.Windows.Forms.TextBox txtXpos;
         internal System.Windows.Forms.TextBox txtYpos;
         private System.Windows.Forms.PictureBox picTestArea;
+        private System.Windows.Forms.Label lblInfo;
     }
 }
 
