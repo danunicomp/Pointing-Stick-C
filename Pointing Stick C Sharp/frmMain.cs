@@ -12,7 +12,9 @@ namespace Pointing_Stick_C_Sharp
         int StatusLeft=0, StatusRight=0;
         string strVersion = "Version 0.9 Modified June 8, 2016";
         bool DebugMode = false;
-      
+        int iRememberedX, iRememberedY;
+        bool bolRememberedMode = false;
+        int iCurrentPosX, iCurrentPosY;
 
         public frmPSTest()
         {
@@ -125,8 +127,23 @@ namespace Pointing_Stick_C_Sharp
 
             picTestArea.Invalidate();       //refreshes the picturebox
             lastPoint = e.Location;         //keep assigning the lastPoint to the current mouse position
-            txtXpos.Text = e.Location.X.ToString();
-            txtYpos.Text = e.Location.Y.ToString();
+            iCurrentPosX = e.Location.X;
+            iCurrentPosY = e.Location.Y;
+            txtXpos.Text = iCurrentPosX.ToString();
+            txtYpos.Text = iCurrentPosY.ToString();
+
+            // REMEMBER MODE
+            if (bolRememberedMode != true)
+            {
+                txtRememberedX.Text = iCurrentPosX.ToString();
+                txtRememberedY.Text = iCurrentPosY.ToString();
+            }
+            else
+            {
+                iRememberedX = iCurrentPosX;
+                iRememberedY = iCurrentPosY;
+            }
+
         }
 
         private void ExitTest()
@@ -136,6 +153,12 @@ namespace Pointing_Stick_C_Sharp
 
         private void RememeberPosition()
         {
+            bolRememberedMode = true;
+            iRememberedX = iCurrentPosX;
+            iRememberedY = iCurrentPosY;
+            txtRememberedX.Text = iCurrentPosX.ToString();
+            txtRememberedY.Text = iCurrentPosY.ToString();
+
         }
 
         private void RestartTest()
@@ -145,11 +168,42 @@ namespace Pointing_Stick_C_Sharp
             btnRightClick.BackColor = Color.LightGray;
             StatusLeft = 0;
             StatusRight = 0;
+            bolRememberedMode = false;
+            iRememberedX = iCurrentPosX;
+            iRememberedY = iCurrentPosY;
+            txtRememberedX.Text = iCurrentPosX.ToString();
+            txtRememberedY.Text = iCurrentPosY.ToString();
+
         }
 
         private void btnRestart_Click(object sender, EventArgs e)
         {
             this.RestartTest();
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRememberPos_Click(object sender, EventArgs e)
+        {
+            RememeberPosition();
         }
 
         private void btnLeftClick_Click(object sender, EventArgs e)

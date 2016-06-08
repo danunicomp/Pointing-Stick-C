@@ -42,8 +42,15 @@
             this.txtYpos = new System.Windows.Forms.TextBox();
             this.picTestArea = new System.Windows.Forms.PictureBox();
             this.lblInfo = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtRememberedX = new System.Windows.Forms.TextBox();
+            this.txtRememberedY = new System.Windows.Forms.TextBox();
             this.Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picTestArea)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnDriftResult
@@ -78,6 +85,7 @@
             this.btnRememberPos.Size = new System.Drawing.Size(75, 23);
             this.btnRememberPos.TabIndex = 21;
             this.btnRememberPos.Text = "F4 - Lock";
+            this.btnRememberPos.Click += new System.EventHandler(this.btnRememberPos_Click);
             // 
             // btnExit
             // 
@@ -104,7 +112,7 @@
             this.Panel1.Controls.Add(this.Label1);
             this.Panel1.Controls.Add(this.txtXpos);
             this.Panel1.Controls.Add(this.txtYpos);
-            this.Panel1.Location = new System.Drawing.Point(217, 309);
+            this.Panel1.Location = new System.Drawing.Point(212, 298);
             this.Panel1.Name = "Panel1";
             this.Panel1.Size = new System.Drawing.Size(144, 64);
             this.Panel1.TabIndex = 22;
@@ -171,17 +179,85 @@
             // lblInfo
             // 
             this.lblInfo.AutoSize = true;
-            this.lblInfo.Location = new System.Drawing.Point(13, 408);
+            this.lblInfo.Location = new System.Drawing.Point(9, 425);
             this.lblInfo.Name = "lblInfo";
             this.lblInfo.Size = new System.Drawing.Size(35, 13);
             this.lblInfo.TabIndex = 25;
             this.lblInfo.Text = "label3";
             // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.txtRememberedX);
+            this.panel2.Controls.Add(this.txtRememberedY);
+            this.panel2.Location = new System.Drawing.Point(212, 368);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(137, 55);
+            this.panel2.TabIndex = 23;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(29, 3);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(71, 15);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Remembered";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(6, 26);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(17, 13);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "X:";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(70, 26);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(17, 13);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Y:";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // txtRememberedX
+            // 
+            this.txtRememberedX.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.txtRememberedX.Location = new System.Drawing.Point(22, 22);
+            this.txtRememberedX.Name = "txtRememberedX";
+            this.txtRememberedX.Size = new System.Drawing.Size(32, 20);
+            this.txtRememberedX.TabIndex = 8;
+            this.txtRememberedX.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtRememberedX.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // txtRememberedY
+            // 
+            this.txtRememberedY.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.txtRememberedY.Location = new System.Drawing.Point(86, 22);
+            this.txtRememberedY.Name = "txtRememberedY";
+            this.txtRememberedY.Size = new System.Drawing.Size(32, 20);
+            this.txtRememberedY.TabIndex = 9;
+            this.txtRememberedY.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtRememberedY.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
             // frmPSTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(512, 423);
+            this.ClientSize = new System.Drawing.Size(511, 447);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.lblInfo);
             this.Controls.Add(this.picTestArea);
             this.Controls.Add(this.Panel1);
@@ -198,6 +274,8 @@
             this.Panel1.ResumeLayout(false);
             this.Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picTestArea)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -218,6 +296,12 @@
         internal System.Windows.Forms.TextBox txtYpos;
         private System.Windows.Forms.PictureBox picTestArea;
         private System.Windows.Forms.Label lblInfo;
+        internal System.Windows.Forms.Panel panel2;
+        internal System.Windows.Forms.Label label3;
+        internal System.Windows.Forms.Label label4;
+        internal System.Windows.Forms.Label label5;
+        internal System.Windows.Forms.TextBox txtRememberedX;
+        internal System.Windows.Forms.TextBox txtRememberedY;
     }
 }
 
