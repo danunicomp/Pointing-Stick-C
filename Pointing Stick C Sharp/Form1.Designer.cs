@@ -167,11 +167,13 @@
             this.picTestArea.TabIndex = 24;
             this.picTestArea.TabStop = false;
             // 
+            // 
+            // 
             // frmPSTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(512, 416);
+            this.ClientSize = new System.Drawing.Size(512, 423);
             this.Controls.Add(this.picTestArea);
             this.Controls.Add(this.Panel1);
             this.Controls.Add(this.btnRememberPos);
@@ -188,6 +190,7 @@
             this.Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picTestArea)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

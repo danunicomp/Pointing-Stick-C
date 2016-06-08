@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Text;
 using System.Windows.Forms;
-
+using System.Diagnostics;
 
 namespace Pointing_Stick_C_Sharp
 {
@@ -14,10 +10,14 @@ namespace Pointing_Stick_C_Sharp
     {
         Point lastPoint = Point.Empty;//Point.Empty represents null for a Point object
         int StatusLeft=0, StatusRight=0;
+        string strVersion = "Version 0.9 Modified June 8, 2016";
+        bool DebugMode = false;
+      
 
         public frmPSTest()
         {
             InitializeComponent();
+            Debug.Assert(DebugMode = true);
 
             picTestArea.MouseMove += new System.Windows.Forms.MouseEventHandler(picTestArea_MouseMove);
             picTestArea.MouseDown += new System.Windows.Forms.MouseEventHandler(MouseDown);
@@ -26,7 +26,7 @@ namespace Pointing_Stick_C_Sharp
 
         private void frmPSTest_Load(object sender, EventArgs e)
         {
-
+            lblInfo.Text = strVersion;
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
@@ -49,15 +49,17 @@ namespace Pointing_Stick_C_Sharp
 
         private new void MouseDown(object sender, MouseEventArgs e)
         {
+
             switch (e.Button)
             {
                 case MouseButtons.Left:
-                    Console.WriteLine("Down Left");
+                   
+                    if (DebugMode) Console.WriteLine("Down Left");
                     btnLeftClick.BackColor = Color.LightBlue;
                     StatusLeft = 1;  // Set Status as being down
                     break;
                 case MouseButtons.Right:
-                    Console.WriteLine("Down Right");
+                    if (DebugMode) Console.WriteLine("Down Right");
                     btnRightClick.BackColor = Color.LightBlue;
                     StatusRight = 1;  // Set Status as being down
                     break;
@@ -71,7 +73,7 @@ namespace Pointing_Stick_C_Sharp
             switch (e.Button)
             {
                 case MouseButtons.Left:
-                    Console.WriteLine("Up Left");
+                    if (DebugMode) Console.WriteLine("Up Left");
                     if (StatusLeft == 1)
                     {
                         btnLeftClick.BackColor = Color.LightGreen; ;
@@ -84,7 +86,7 @@ namespace Pointing_Stick_C_Sharp
                     }
                     break;
                 case MouseButtons.Right:
-                    Console.WriteLine("Up Right");
+                    if (DebugMode) Console.WriteLine("Up Right");
                     if (StatusRight == 1)
                     {
                         btnRightClick.BackColor = Color.LightGreen;
