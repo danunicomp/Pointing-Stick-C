@@ -13,7 +13,7 @@ namespace Pointing_Stick_C_Sharp
         string strVersion = "Version 0.9 Modified June 8, 2016";
         bool DebugMode = false;
         int iRememberedX, iRememberedY;
-        bool bolRememberedMode = false;
+        bool bolRememberedMode = false, bolDrift = false;
         int iCurrentPosX, iCurrentPosY;
 
         public frmPSTest()
@@ -133,15 +133,34 @@ namespace Pointing_Stick_C_Sharp
             txtYpos.Text = iCurrentPosY.ToString();
 
             // REMEMBER MODE
-            if (bolRememberedMode != true)
+            if (bolRememberedMode == true)
+            {
+                if (iRememberedX != iCurrentPosX || iRememberedY != iCurrentPosY)
+                {
+                 //   Console.WriteLine("DRIFT");
+                }
+            }
+            else
             {
                 txtRememberedX.Text = iCurrentPosX.ToString();
                 txtRememberedY.Text = iCurrentPosY.ToString();
             }
-            else
+
+            if (bolRememberedMode && bolDrift != true)
             {
-                iRememberedX = iCurrentPosX;
-                iRememberedY = iCurrentPosY;
+
+                //Console.WriteLine("Remembered Mode");
+                if (iRememberedX != iCurrentPosX || iRememberedY != iCurrentPosY)
+                {
+                    // Console.WriteLine("DRIFT");
+                    bolDrift = true;
+                }
+                    
+            }
+
+            if (bolDrift)
+            {
+                DoFail();
             }
 
         }
@@ -158,7 +177,8 @@ namespace Pointing_Stick_C_Sharp
             iRememberedY = iCurrentPosY;
             txtRememberedX.Text = iCurrentPosX.ToString();
             txtRememberedY.Text = iCurrentPosY.ToString();
-
+            btnDriftResult.BackColor = Color.LightBlue;
+            btnDriftResult.Text = "NO DRAFT";
         }
 
         private void RestartTest()
@@ -173,6 +193,9 @@ namespace Pointing_Stick_C_Sharp
             iRememberedY = iCurrentPosY;
             txtRememberedX.Text = iCurrentPosX.ToString();
             txtRememberedY.Text = iCurrentPosY.ToString();
+            bolDrift = false;
+            btnDriftResult.BackColor = Color.LightGray;
+            btnDriftResult.Text = "";
 
         }
 
@@ -208,6 +231,13 @@ namespace Pointing_Stick_C_Sharp
 
         private void btnLeftClick_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void DoFail ()
+        {
+            btnDriftResult.BackColor = Color.Red;
+            btnDriftResult.Text = "DRAFT";
 
         }
     }
