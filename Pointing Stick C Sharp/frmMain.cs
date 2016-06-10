@@ -10,7 +10,7 @@ namespace Pointing_Stick_C_Sharp
     {
         Point lastPoint = Point.Empty;//Point.Empty represents null for a Point object
         int StatusLeft=0, StatusRight=0;
-        string strVersion = "Version 0.9 Modified June 8, 2016";
+        string strVersion = "Version 1.0 Modified June 10, 2016";
         bool DebugMode = false;
         int iRememberedX, iRememberedY;
         bool bolRememberedMode = false, bolDrift = false;
@@ -51,7 +51,6 @@ namespace Pointing_Stick_C_Sharp
 
         private new void MouseDown(object sender, MouseEventArgs e)
         {
-
             switch (e.Button)
             {
                 case MouseButtons.Left:
@@ -67,7 +66,6 @@ namespace Pointing_Stick_C_Sharp
                     break;
                 default:
                     break;
-
             }
         }
         private new void MouseUp(object sender, MouseEventArgs e)
@@ -102,7 +100,6 @@ namespace Pointing_Stick_C_Sharp
                     break;
                 default:
                     break;
-
             }
         }
 
@@ -204,34 +201,9 @@ namespace Pointing_Stick_C_Sharp
             this.RestartTest();
         }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnRememberPos_Click(object sender, EventArgs e)
         {
             RememeberPosition();
-        }
-
-        private void btnLeftClick_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void DoFail ()

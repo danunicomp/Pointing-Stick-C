@@ -77,7 +77,6 @@
             this.btnLeftClick.Size = new System.Drawing.Size(75, 40);
             this.btnLeftClick.TabIndex = 16;
             this.btnLeftClick.Text = "LEFT CLICK";
-            this.btnLeftClick.Click += new System.EventHandler(this.btnLeftClick_Click);
             // 
             // btnRememberPos
             // 
@@ -220,7 +219,6 @@
             this.label4.Size = new System.Drawing.Size(17, 13);
             this.label4.TabIndex = 11;
             this.label4.Text = "X:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
@@ -231,7 +229,6 @@
             this.label5.Size = new System.Drawing.Size(17, 13);
             this.label5.TabIndex = 10;
             this.label5.Text = "Y:";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // txtRememberedX
             // 
@@ -241,7 +238,6 @@
             this.txtRememberedX.Size = new System.Drawing.Size(32, 20);
             this.txtRememberedX.TabIndex = 8;
             this.txtRememberedX.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtRememberedX.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // txtRememberedY
             // 
@@ -251,7 +247,6 @@
             this.txtRememberedY.Size = new System.Drawing.Size(32, 20);
             this.txtRememberedY.TabIndex = 9;
             this.txtRememberedY.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtRememberedY.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // frmPSTest
             // 
