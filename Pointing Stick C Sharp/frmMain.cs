@@ -10,7 +10,7 @@ namespace Pointing_Stick_C_Sharp
     {
         Point lastPoint = Point.Empty;//Point.Empty represents null for a Point object
         int StatusLeft=0, StatusRight=0;
-        string strVersion = "Version 1.0 Modified June 10, 2016";
+        string strVersion = "Version 1.0 Modified June 14, 2016";
         bool DebugMode = false;
         int iRememberedX, iRememberedY;
         bool bolRememberedMode = false, bolDrift = false;
@@ -29,6 +29,9 @@ namespace Pointing_Stick_C_Sharp
         private void frmPSTest_Load(object sender, EventArgs e)
         {
             lblInfo.Text = strVersion;
+            this.ResetText();
+            // frmPSTest.ActiveForm.Text = "Unicomp Pointing Stick Test. C#";
+            this.Text = "Unicomp PS C# " + strVersion;
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
@@ -152,7 +155,6 @@ namespace Pointing_Stick_C_Sharp
                     // Console.WriteLine("DRIFT");
                     bolDrift = true;
                 }
-                    
             }
 
             if (bolDrift)
@@ -162,11 +164,17 @@ namespace Pointing_Stick_C_Sharp
 
         }
 
+        //
+        // EXIT TEST PROGRAM
+        //
         private void ExitTest()
         {
             this.Close(); 
         }
 
+        //
+        // REMEMBER POSITION COORDINATES
+        //
         private void RememeberPosition()
         {
             bolRememberedMode = true;
@@ -175,9 +183,18 @@ namespace Pointing_Stick_C_Sharp
             txtRememberedX.Text = iCurrentPosX.ToString();
             txtRememberedY.Text = iCurrentPosY.ToString();
             btnDriftResult.BackColor = Color.LightBlue;
-            btnDriftResult.Text = "NO DRAFT";
+            btnDriftResult.Text = "NO DRIFT";
         }
 
+        private void DoFail()
+        {
+            btnDriftResult.BackColor = Color.Red;
+            btnDriftResult.Text = "DRIFT";
+        }
+
+        //
+        // CLEAR EVERYTHING AND RESTART TEST
+        //
         private void RestartTest()
         {
             picTestArea.Image = null;
@@ -193,7 +210,6 @@ namespace Pointing_Stick_C_Sharp
             bolDrift = false;
             btnDriftResult.BackColor = Color.LightGray;
             btnDriftResult.Text = "";
-
         }
 
         private void btnRestart_Click(object sender, EventArgs e)
@@ -205,14 +221,5 @@ namespace Pointing_Stick_C_Sharp
         {
             RememeberPosition();
         }
-
-        private void DoFail ()
-        {
-            btnDriftResult.BackColor = Color.Red;
-            btnDriftResult.Text = "DRAFT";
-
-        }
     }
-
-
 }
